@@ -1,23 +1,44 @@
-let valorBase = parseFloat(prompt("Ingrese el precio del juego base"));
-let valorDescuento = parseFloat(prompt("Ingrese el valor del descuento (ej: 10, 25, 50)"));
-let valorImpuesto = 1.75;
+let nombre = prompt("Ingrese el nombre del juego")
+let precio = parseFloat(prompt("Ingrese el precio del juego base"));
+let descuento = parseFloat(prompt("Ingrese el valor del descuento (ej: 10, 25, 50)"));
+const valorImpuesto = 1.75;
 
 
-// Incorporación de arrays
-let juego = ["Terraria", valorBase, valorDescuento]
+// Incorporación de arrays de objetos
+const juegos = []
 
-function descuento(num1,num2,num3){
-   let res1 = num1 * ((100 - num2) / 100);
-   let res2 = res1 * num3;
-   console.log (res1); //Precio base luego de aplicar el descuento
-   document.write ("<br>")
-   document.write ("El precio final de " + juego[0] + " es " + res2); //Precio final luego del descuento y el impuesto
+
+function juego(nombre, precio, descuento){
+   this.nombre = nombre;
+   this.precio = parseFloat(precio);
+   this.descuento = parseFloat(descuento); 
 }
 
-descuento(valorBase,valorDescuento,valorImpuesto)
 
- // El proyecto final va a ser de una especie de web donde uno puede agregar juegos en oferta (o no) a un carrito y le daría el precio final total teniendo
- // en cuenta impuestos y demás. Me conviene mas adelante crear un array con, por ejemplo, todos los nombres y otro con todos los precios base para ir
- // armando varias cards?
+function valorJuegoFinal(num1,num2,num3){
+   let res1 = num1 * ((100 - num2) / 100);
+   let res2 = res1 * num3;
+   
+   if(isNaN(num1) || isNaN(num2)){
+      
+      alert("No dejes campos vacíos");
+      
+   }else {
+      document.write ("<br>");
+      document.write ("El precio final de " + nombre + " es " + res2); //Precio final luego del descuento y el impuesto
+   }
+   
+   console.log (res1); //Precio base luego de aplicar el descuento
+}
+const juegoNuevo = new juego("Terraria", 200, 15);
 
+valorJuegoFinal(precio,descuento,valorImpuesto);
+
+function cargarJuegos(juego){
+   return juegos.push(juego);
+}
+
+cargarJuegos(juegoNuevo)
+
+console.log(juegos);
 
