@@ -1,22 +1,3 @@
-//let nombre = "Terraria"
-//let precio = 1020//document.getElementById("precioBase");
-//let descuento = 5//document.getElementById("valorDesc");
-const valorImpuesto = 1.75;
-
-
-function valorJuegoFinal(num1,num2,num3){
-   let res1 = num1 * ((100 - num2) / 100);
-   let res2 = res1 * num3;
-   
-   return res2;
-   
-}
-
-// function Juego (nombre, precio, descuento){
-//    this.nombre = nombre;
-//    this.precio = precio;
-//    this.descuento = descuento;
-// }
 let boton0 = document.querySelector(".item0");
 let boton1 = document.querySelector(".item1");
 let boton2 = document.querySelector(".item2");
@@ -25,17 +6,7 @@ function textoBoton(numero) {
    numero.innerHTML = "Agregado";
 }
 
-
-
-// const juego1 = Juego("Terraria", 129, 25)
-// const juego2 = Juego("The Witcher 3", 96, 50)
-// const juego3 = Juego("Fallout 3", 315, 10)
-
-
-document.getElementById("precioFinal").innerHTML = valorJuegoFinal();
-
 let carro = document.querySelectorAll(".addCart");
-
 
 let juegos = [
    {
@@ -56,7 +27,6 @@ let juegos = [
       descuento: 10,
       inCart: 0
    }
-
 ];
 
 for (let i=0; i < carro.length; i++){
@@ -67,6 +37,7 @@ for (let i=0; i < carro.length; i++){
 }
 
 function carroNumeroCargado() {
+
    let juegoNumero = localStorage.getItem("carroNumero");
 
    if(juegoNumero){
@@ -75,7 +46,6 @@ function carroNumeroCargado() {
 }
 
 function carroNumero(juegos){
-
 
    let juegoNumero = localStorage.getItem("carroNumero");
 
@@ -90,11 +60,12 @@ function carroNumero(juegos){
    }
 
    agregarItems(juegos);
-
 }
 
 function agregarItems(juegos){
+
    let carroItems = localStorage.getItem("juegosEnCarro");
+
    carroItems = JSON.parse(carroItems);
 
    if(carroItems != null) {
@@ -115,14 +86,21 @@ function agregarItems(juegos){
 }
 
 function costoTotal(juegos) {
-   // console.log("voy a pagar", juegos.valor);
-   let valorCarro = localStorage.getItem("valorFinal");
-   valorCarro = parseInt(valorCarro)
+
+   let valorCarro = localStorage.getItem("valorFinal");   
 
    console.log("el costo total es, ", valorCarro);
 
-   localStorage.setItem("valorFinal", (((juegos.valor * (100 - juegos.descuento)/100)*1.75)));
+   if(valorCarro != null){
+      valorCarro = parseInt(valorCarro);
+      localStorage.setItem("valorFinal", valorCarro + (juegos.valor * ((100 - juegos.descuento) / 100)) * 1.75)
+   }else {
+      localStorage.setItem("valorFinal", (juegos.valor * ((100 - juegos.descuento) / 100)) * 1.75);
+   }
 
+   document.getElementById("precioFinal").innerHTML = localStorage.getItem("valorFinal");
+
+   document.getElementById("precioImpuesto").innerHTML = parseInt(valorCarro) - (juegos.valor * ((100 - juegos.descuento) / 100));
 }
 
 carroNumeroCargado();
