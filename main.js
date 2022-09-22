@@ -101,6 +101,7 @@ function costoTotal(juegos) {
    document.getElementById("precioFinal").innerHTML = localStorage.getItem("valorFinal");
 
    document.getElementById("precioImpuesto").innerHTML = parseInt(valorCarro) - (juegos.valor * ((100 - juegos.descuento) / 100));
+   //no se por que obtengo un null la primera vez que se le da click al boton de agregar al changuito, pero la segunda vez y demás anda perfecto
 }
 
 carroNumeroCargado();
