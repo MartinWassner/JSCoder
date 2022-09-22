@@ -1,0 +1,33 @@
+
+.card{
+    background-color: #6c7fa7;
+    width: fit-content;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-left: 10%;
+    display: inline-block;
+
+}
+
+img {
+    width: 200px;
+    height: 246px;
+}
+
+.precio{
+    display: inline-block;
+    margin-left: 15%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid black;
+
+    width: fit-content;
+}
+
+.pepe{
+    width: 200px;
+
+}
+
+input{
+    margin-bottom: 20px;
+}
