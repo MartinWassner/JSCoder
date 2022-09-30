@@ -9,59 +9,20 @@
     <link rel="stylesheet" href="style.css">
    
 </head>
-<body style="background-color: #454d60;"> 
+<body> 
     <h1 style="display: flex; justify-content: center;">hola</h1>
 
     <h2>soy una calculadora para que compruebes cuánto te costaría comprar uno o varios juegos de steam con los descuentos e impuestos</h2>
-    <div class="card">
-        <img src="media/terraria.webp" alt="">
-        
-        <br>
-        <p>Precio base</p> <p id="">129$</p>
-        <br>
-        <p>Descuento</p> <p>25%</p>
-        <br>
-        <a href="#" class="item0 addCart" onclick="textoBoton(boton0)">Agregar al changuito</a>
-    </div>
-    <div class="card">
-        <img src="media/wicher.jpg" alt="">
-        
-        <br>
-        <p>Precio base</p> <p>96$</p>
-        <br>
-         <p>Descuento</p> <p>50%</p>
-        <br>
+    <div class="main">
 
-        <a href="#" class="item1 addCart" onclick="textoBoton(boton1)">Agregar al changuito</a>
-    </div>
-    <div class="card">
-        <img src="media/falo.webp" alt="">
-        
-        <br>
-        <p>Precio base</p> <p>315$</p>
-        <br>
-         <p>Descuento</p> <p>10%</p>
-        <br>
-        <a href="#" class="item2 addCart" onclick="textoBoton(boton2)">Agregar al changuito</a>
-   
-    </div>
+        <div class="listado" style="display: flex; flex-wrap: wrap;">       </div>
 
-    <div class="precio">
-
-        <p class="itemsCarrito">Items en el carrito: <span>0</span></p>
-
-        <img src="media/peepo-sad.gif" alt="" class="pepe">
-
-        <p>Vas a pagar en total: $<b id="precioFinal"></b></p>
-
-        <p>Con tu compra estarías ayudando a la AFIP con: $<b id="precioImpuesto"></b></p>
-        
+        <div class="carrito"></div>
 
     </div>
 
 
-
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
 </body>
 </html>
