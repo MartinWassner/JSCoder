@@ -8,6 +8,8 @@ h1, h2{
 img {
     width: 200px;
     height: 246px;
+    box-shadow: 0 0 50px 50px #1F7197 inset;
+
 }
 
 .pepe{
